@@ -1,16 +1,12 @@
 # coding: utf-8
 
 from setuptools import setup, find_packages
-<<<<<<< HEAD
 from pathlib import Path
-=======
->>>>>>> 4a6c4a515a33824834296068c5176f7286f16e38
 
 NAME = 'pandas_2_pptx'
 VERSION = '0.1.0'
 
 
-<<<<<<< HEAD
 def set_init_dir():
 
     dir_list = [
@@ -50,8 +46,6 @@ def set_init_dir():
 
 set_init_dir()
 
-=======
->>>>>>> 4a6c4a515a33824834296068c5176f7286f16e38
 setup(
     name=NAME,
     version=VERSION,

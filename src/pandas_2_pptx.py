@@ -1,15 +1,12 @@
 
 from pptx import Presentation
-<<<<<<< HEAD
 import sys
 import pathlib
 # base.pyのあるディレクトリの絶対パスを取得
 current_dir = pathlib.Path(__file__).resolve().parent
 # モジュールのあるパスを追加
-sys.path.append( str(current_dir) + '/../' )
+sys.path.append(str(current_dir) + '/../')
 from .slide import slide
-=======
->>>>>>> 4a6c4a515a33824834296068c5176f7286f16e38
 
 
 class pandas_2_pptx():
