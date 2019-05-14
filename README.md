@@ -4,7 +4,7 @@ pandasのDataFrameをパワーポイントのグラフやテーブルに変換�
 
 ## フォルダ構成
 
-'''
+```
 .
 ├── README.md                      README（本ファイル）
 ├── setup.py                       パッケージセットアップ
@@ -14,4 +14,4 @@ pandasのDataFrameをパワーポイントのグラフやテーブルに変換�
     ├── pandas_2_pptx.py           pptxファイルを生成するスクリプト
     └── slide.py                   スライドを追加するスクリプト
 
-'''
+```
