@@ -45,6 +45,13 @@ class slide():
         self.__df_list.append(df)
         self.__slide_object_list.append(["table", rows, cols])
 
+
+    def __calculation_width(self, text, font_size, width, df):
+        space = font_size*2
+        text_len = (sum([len(i) for i in df.columns])+5)
+        cel_width = int((width-(df.shape[1]+1)*(space))*len(text)/text_len+space)
+        return cel_width
+
     def __pandas_genelate_table(self, table, df, width):
         '''
         プライベートメソッド。
@@ -54,31 +61,47 @@ class slide():
             table (pptx.table.Table): tableオブジェクト
             df (pandas.DataFrame): tableオブジェクトに格納するdataframe
         '''
-        table.cell(0, 0).text = "index"
         text_frame = table.cell(0, 0).text_frame
         text_frame.word_wrap = True
         text_frame.auto_size = MSO_AUTO_SIZE.TEXT_TO_FIT_SHAPE
-        for i, column in enumerate(df.columns):
+        if(df.shape[1] >= 10):
+            font_size = Pt(10)
+        else:
+            font_size = width/(sum([len(i) for i in df.columns])+4)
+            if(font_size > Pt(14)):
+                font_size = Pt(14)
+
+        #if(df.shape[1] > 3):
+        #    table.columns[0].width = self.__calculation_width("index", font_size, width, df)
+        run = table.cell(0, 0).text_frame.paragraphs[0].add_run()
+        font = run.font
+        font.name = "メイリオ"
+        run.text = "index"
+        run.font.size = font_size
+
+        for i, column in enumerate(df.columns):  # column
+            #if(df.shape[1] > 3):
+            #    table.columns[i+1].width = self.__calculation_width(column, font_size, width, df)
             run = table.cell(0, i + 1).text_frame.paragraphs[0].add_run()
             font = run.font
             font.name = "メイリオ"
             run.text = column
-            run.font.size = width/df.shape[1]
+            run.font.size = font_size
 
-        for i, index in enumerate(df.index):
-            table.cell(i + 1, 0).text_frame.paragraphs[0].add_run()
+        for i, index in enumerate(df.index):# index
+            run = table.cell(i + 1, 0).text_frame.paragraphs[0].add_run()
             font = run.font
             font.name = "メイリオ"
             run.text = str(index)
-            run.font.size = width/df.shape[1]
+            run.font.size = font_size
 
         for row in range(df.shape[0]):
             for line in range(df.shape[1]):
-                table.cell(row+1, line+1).text_frame.paragraphs[0].add_run()
+                run = table.cell(row+1, line+1).text_frame.paragraphs[0].add_run()
                 font = run.font
                 font.name = "メイリオ"
                 run.text = str(df.values[row, line])
-                run.font.size = width/df.shape[1]
+                run.font.size = font_size
 
     def __pandas_genelate_linechart(self, df):
         '''
