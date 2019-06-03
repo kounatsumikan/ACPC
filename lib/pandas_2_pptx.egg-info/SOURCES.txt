@@ -1,0 +1,10 @@
+README.md
+setup.py
+lib/pandas_2_pptx/__init__.py
+lib/pandas_2_pptx/pandas_2_pptx.py
+lib/pandas_2_pptx/slide.py
+lib/pandas_2_pptx.egg-info/PKG-INFO
+lib/pandas_2_pptx.egg-info/SOURCES.txt
+lib/pandas_2_pptx.egg-info/dependency_links.txt
+lib/pandas_2_pptx.egg-info/requires.txt
+lib/pandas_2_pptx.egg-info/top_level.txt

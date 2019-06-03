@@ -3,7 +3,6 @@ from pptx.enum.chart import XL_CHART_TYPE
 from pptx.util import Inches, Cm
 from pptx.chart.data import CategoryChartData
 from pptx.enum.text import MSO_AUTO_SIZE
-from pptx.util import Pt
 
 class slide():
 
@@ -45,7 +44,7 @@ class slide():
         self.__df_list.append(df)
         self.__slide_object_list.append(["table", rows, cols])
 
-    def __pandas_genelate_table(self, table, df, width):
+    def __pandas_genelate_table(self, table, df):
         '''
         プライベートメソッド。
         pandasをpptxのテーブルに変換する関数
@@ -59,26 +58,23 @@ class slide():
         text_frame.word_wrap = True
         text_frame.auto_size = MSO_AUTO_SIZE.TEXT_TO_FIT_SHAPE
         for i, column in enumerate(df.columns):
-            run = table.cell(0, i + 1).text_frame.paragraphs[0].add_run()
-            font = run.font
-            font.name = "メイリオ"
-            run.text = column
-            run.font.size = width/df.shape[1]
+            table.cell(0, i + 1).text = column
+            text_frame = table.cell(0, i + 1).text_frame
+            text_frame.word_wrap = True
+            text_frame.auto_size = MSO_AUTO_SIZE.TEXT_TO_FIT_SHAPE
 
         for i, index in enumerate(df.index):
-            table.cell(i + 1, 0).text_frame.paragraphs[0].add_run()
-            font = run.font
-            font.name = "メイリオ"
-            run.text = str(index)
-            run.font.size = width/df.shape[1]
+            table.cell(i + 1, 0).text = str(index)
+            text_frame = table.cell(i + 1, 0).text_frame
+            text_frame.word_wrap = True
+            text_frame.auto_size = MSO_AUTO_SIZE.TEXT_TO_FIT_SHAPE
 
         for row in range(df.shape[0]):
             for line in range(df.shape[1]):
-                table.cell(row+1, line+1).text_frame.paragraphs[0].add_run()
-                font = run.font
-                font.name = "メイリオ"
-                run.text = str(df.values[row, line])
-                run.font.size = width/df.shape[1]
+                table.cell(row+1, line+1).text = str(df.values[row, line])
+                text_frame = table.cell(row+1, line+1).text_frame
+                text_frame.word_wrap = True
+                text_frame.auto_size = MSO_AUTO_SIZE.TEXT_TO_FIT_SHAPE
 
     def __pandas_genelate_linechart(self, df):
         '''
@@ -161,9 +157,9 @@ class slide():
                                                       shape_list[n][0],  # left
                                                       shape_list[n][1],  # top
                                                       shape_list[n][2],  # width
-                                                      shape_list[n][3]   # hight
+                                                      shape_list[n][3]  # hight
                                                       ).table
-                self.__pandas_genelate_table(table, self.__df_list[n], shape_list[n][2])
+                self.__pandas_genelate_table(table, self.__df_list[n])
 
             elif(i[0] == "chart"):
                 chart = self.__slide.shapes.add_chart(XL_CHART_TYPE.LINE,
