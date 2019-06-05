@@ -12,13 +12,13 @@ csvデータが保管されているディレクトリを指定することで
     - ノートブックにて作業中
 
 # instration
-
+~~
 1. pandas_2_pptxをインストールしてください
     - https://github.com/kounatsumikan/pandas_2_pptx
-    
+
 2. acpcのsetup.pyを実行してインストールしてください
     - ```python setup.py install```
-
+~~
 ## フォルダ構成
 
 <!-- ```
