@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 from pathlib import Path
 
 NAME = 'acpc'
-VERSION = '0.5.0'
+VERSION = '0.1.0'
 
 
 def set_init_dir():
@@ -49,7 +49,7 @@ set_init_dir()
 setup(
     name=NAME,
     version=VERSION,
-    install_requires=["pandas", "python-pptx"],
+    install_requires=["pandas", "python-pptx", "chardet"],
     packages=find_packages('lib'),
     package_dir={'': 'lib'},
 )
