@@ -10,9 +10,9 @@ import pathlib
 current_dir = pathlib.Path(__file__).resolve().parent
 # モジュールのあるパスを追加
 sys.path.append(str(current_dir) + '/../')
-from .utils import make_file_list
-from .utils import check_datetime_column
-from .describe import describe
+from utils.utils import make_file_list
+from utils.utils import check_datetime_column
+from describe.describe import describe
 
 class Acpc():
 
