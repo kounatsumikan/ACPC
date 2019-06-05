@@ -16,8 +16,8 @@ csvデータが保管されているディレクトリを指定することで
 1. pandas_2_pptxをインストールしてください
     - https://github.com/kounatsumikan/pandas_2_pptx
 
-2. ~~acpcのsetup.pyを実行してインストールしてください~~
-    - ~~```python setup.py install```~~
+2. acpcのsetup.pyを実行してインストールしてください(管理者権限で実行)
+    - ```python setup.py install```
 
 ## フォルダ構成
 
