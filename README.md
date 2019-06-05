@@ -26,11 +26,11 @@ pandasのDataFrameをパワーポイントのグラフやテーブルに変換�
 ## Documentation
 
 - pandas_2_pptx
-    - add_title_slide             function
-    - add_slide                    function
-    - save                         function
-    - slide                        object
+    - add_title_slide    function
+    - add_slide          function
+    - save               function
+    - slide              object
 - slide
-    - add_chart                    function
-    - add_table                    function
-    - generate                     function
+    - add_chart          function
+    - add_table          function
+    - generate           function
