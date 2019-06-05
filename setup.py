@@ -3,7 +3,7 @@
 from setuptools import setup, find_packages
 from pathlib import Path
 
-NAME = 'pandas_2_pptx'
+NAME = 'acpc'
 VERSION = '0.5.0'
 
 

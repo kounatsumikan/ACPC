@@ -1,17 +1,19 @@
-# pandas_2_pptx
-pandasのDataFrameをパワーポイントのグラフやテーブルに変換して出力する
+# Automatically_create_PPTX_from_CSV
+csvデータが保管されているディレクトリを指定することで
 
-エクセルやグラフの画像ファイルを経由せず直接pptx化し効率化を求める
+指定されたディレクトリ内のcsvの詳細データ、基礎集計結果をpptxとして出力する。
+
+資料作成の時間を大幅に削減できる。
 
 # version情報
-- α版:0.5.0
+- α版:0.0.0
 
-- 表中の文字の大きさを自動調整する機能を追加。
-    - 動作がまだ不安定
+- 開発中
+    - ノートブックにて作業中
 
 ## フォルダ構成
 
-```
+<!-- ```
 .
 ├── README.md                      README（本ファイル）
 ├── setup.py                       パッケージセットアップ
@@ -21,11 +23,11 @@ pandasのDataFrameをパワーポイントのグラフやテーブルに変換�
     ├── pandas_2_pptx.py           pptxファイルを生成するスクリプト
     └── slide.py                   スライドを追加するスクリプト
 
-```
+``` -->
 
 ## Documentation
 
-- pandas_2_pptx
+<!-- - pandas_2_pptx
     - add_title_slide    function
     - add_slide          function
     - save               function
@@ -33,4 +35,4 @@ pandasのDataFrameをパワーポイントのグラフやテーブルに変換�
 - slide
     - add_chart          function
     - add_table          function
-    - generate           function
+    - generate           function -->
